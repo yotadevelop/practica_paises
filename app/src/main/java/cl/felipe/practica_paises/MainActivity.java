@@ -39,11 +39,21 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     private void processPaises(String data) {
         try {
             JSONArray root = new JSONArray(data);
-            JSONObject resp = root.getJSONObject(data.indexOf(0));
-        } catch (JSONException e) {
+
+                for (int i=0; i<root.length();i++){
+                JSONObject pais1 = root.getJSONObject(i);
+
+                String name = pais1.getString("name");
+                String region= pais1.getString("region");
+                String population = pais1.getString("population");
+                Log.d("INFO", "*******************************");
+                Log.d("INFO", "Pais:"+name+"."+" Región:"+region+"."+" Población:"+population+".");
+                }
+            } catch (JSONException e) {
             e.printStackTrace();
         }
     }
